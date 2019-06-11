@@ -35,7 +35,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="equal" alignment="CENTER" layoutX="138.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickOperator" prefHeight="60.0" prefWidth="64.5" style="-fx-background-color: FAFAD2;" text="=">
+            <Button fx:id="ok" alignment="CENTER" layoutX="138.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickOk" prefHeight="60.0" prefWidth="64.5" style="-fx-background-color: FAFAD2;" text="✓">
                <font>
                   <Font size="20.0" />
                </font>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javafx-jmods-11.0">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://C:/Program Files/Java/openjfx-11.0.2_windows-x64_bin-sdk/javafx-jmods-11.0.2" />
+    </SOURCES>
+    <jarDirectory url="file://C:/Program Files/Java/openjfx-11.0.2_windows-x64_bin-sdk/javafx-jmods-11.0.2" recursive="false" type="SOURCES" />
+  </library>
+</component>

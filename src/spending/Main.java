@@ -1,4 +1,4 @@
-package sample;
+package spending;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +11,15 @@ public class Main extends Application {
     public static void main(String[] args) { Application.launch(); }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start( Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Scene scene = new Scene(root, 258, 453);
-        stage.setScene(scene);
-        scene.getStylesheets().add(Main.class.getResource("Styles.css").toExternalForm());
-        stage.show();
+
+        Scene scene = new Scene(root, 582, 456);
+
+        primaryStage.setScene(scene);
+
+        //scene.getStylesheets().add(Main.class.getResource("Styles.css").toExternalForm());
+        primaryStage.show();
     }
 }

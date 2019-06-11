@@ -2,29 +2,30 @@ package calculator;
 
 public class Model {
 
+    public static double costs = 0;
+
     public double calculation(String output) {
 
-        String[] listNum = output.split("[-+*/]");
-        String[] listOp = output.split("[0-9]+\\.?[0-9]*");
-        double result = Double.parseDouble(listNum[0]);
+        String[] listNumbers = output.split("[-+*/]");
+        String operator = output.split("[0-9]+\\.?[0-9]*")[1];
+        double result = Double.parseDouble(listNumbers[0]);
 
-            for (int i = 0; i < listNum.length - 1; i++) {
-                    switch (listOp[i+1]) {
-                    case "-":
-                        result -= Double.parseDouble(listNum[i + 1]);
-                        break;
-                    case "+":
-                        result += Double.parseDouble(listNum[i + 1]);
-                        break;
-                    case "*":
-                        result *=  Double.parseDouble(listNum[i + 1]);
-                        break;
-                    case "/":
-                        result /=  Double.parseDouble(listNum[i + 1]);
-                        break;
-                }
-            }
-        return result;
+        switch (operator) {
+            case "-":
+                result -= Double.parseDouble(listNumbers[1]);
+                break;
+            case "+":
+                result += Double.parseDouble(listNumbers[1]);
+                break;
+            case "*":
+                result *=  Double.parseDouble(listNumbers[1]);
+                break;
+            case "/":
+                result /=  Double.parseDouble(listNumbers[1]);
+                break;
+        }
+            costs = result;
+        return costs;
 
     }
 
