@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pane" prefHeight="456.0" prefWidth="582.0" style="-fx-background-color: #FDF4E3;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spending.MainController">
+<Pane fx:id="pane" prefHeight="456.0" prefWidth="582.0" style="-fx-background-color: #FDF4E3;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spending.Spending_Controller">
    <children>
        <Label prefHeight="36.0" prefWidth="582.0" style="-fx-background-color: #FBCEB1;" />
        <Button fx:id="products" alignment="CENTER" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  textAlignment="CENTER" />
@@ -17,15 +17,19 @@
        <Button fx:id="leisure" alignment="CENTER" layoutX="27.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
        <Button fx:id="clothes" alignment="CENTER" layoutX="479.0" layoutY="160.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
        <Button fx:id="presents" alignment="CENTER" layoutX="479.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
+       <Button fx:id="internet" alignment="CENTER" layoutX="479.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  textAlignment="CENTER" />
        <Button fx:id="plus" alignment="CENTER" layoutX="27.0" layoutY="345.0" mnemonicParsing="false" onAction="#addButton" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" text="+">
          <font>
             <Font name="System Italic" size="16.0" />
          </font></Button>
-      <Label fx:id="spending" alignment="CENTER" layoutX="230.0" layoutY="175.0" prefHeight="121.0" prefWidth="122.0" style="-fx-background-radius: 80; -fx-background-color: #FBCEB1;" text="0 ₽" textAlignment="CENTER">
+       <Button fx:id="incoming" layoutX="287.0" layoutY="425.0" mnemonicParsing="false" onAction="#openIncoming" prefHeight="30.0" prefWidth="293.0" style="-fx-background-color: FBCEB1;" text="Доходы">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font></Button>
+       <Label fx:id="spending" alignment="CENTER" layoutX="230.0" layoutY="175.0" prefHeight="121.0" prefWidth="122.0" style="-fx-background-radius: 80; -fx-background-color: #FBCEB1;" text="0 ₽" textAlignment="CENTER">
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Button fx:id="internet" alignment="CENTER" layoutX="479.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  textAlignment="CENTER" />
       <Text layoutX="256.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Расходы" wrappingWidth="70.0">
          <font>
             <Font name="System Italic" size="18.0" />
@@ -79,10 +83,6 @@
       <Button layoutX="1.0" layoutY="425.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="285.0" style="-fx-background-color: F5DEB3;" text="Расходы">
          <font>
             <Font size="15.0" />
-         </font></Button>
-      <Button fx:id="incoming" layoutX="287.0" layoutY="425.0" mnemonicParsing="false" onAction="#openIncoming" prefHeight="30.0" prefWidth="293.0" style="-fx-background-color: FBCEB1;" text="Доходы">
-         <font>
-            <Font name="System Italic" size="15.0" />
          </font></Button>
    </children>
 </Pane>

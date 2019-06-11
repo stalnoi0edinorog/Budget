@@ -1,18 +1,18 @@
 package spending;
 
-import calculator.Controller;
+import calculator.Calculator_Controller;
 
 public class Context {
     public final static Context instance = new Context();
     public static Context getInstance(){ return instance; }
 
-    private  MainController mainController;
-    public void setMainController(MainController mainController){ this.mainController = mainController; }
-    public MainController getMainController(){ return mainController; }
+    private Spending_Controller mainController;
+    public void setMainController(Spending_Controller mainController){ this.mainController = mainController; }
+    public Spending_Controller getMainController(){ return mainController; }
 
-    private Controller controller;
-    public void setController(Controller controller){ this.controller = controller; }
-    public Controller getController() { return controller; }
+    private Calculator_Controller controller;
+    public void setControllerC(Calculator_Controller controller){ this.controller = controller; }
+    public Calculator_Controller getControllerC() { return controller; }
 
 
 

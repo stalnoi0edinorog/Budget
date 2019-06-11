@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import spending.Context;
-import spending.MainController;
+import spending.Spending_Controller;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,19 +17,19 @@ import java.util.ResourceBundle;
 import static java.lang.Math.round;
 
 
-public class Controller implements Initializable {
+public class Calculator_Controller implements Initializable {
 
     public Text output;
-    private Model model = new Model();
+    private Calculator_Calculation model = new Calculator_Calculation();
     private boolean check = false;
 
     @Override
     @FXML
     public void initialize(URL location, ResourceBundle resource){
-        Context.getInstance().setController(this);
+        Context.getInstance().setControllerC(this);
     }
 
-    MainController mainCont = Context.getInstance().getMainController();
+    Spending_Controller mainCont = Context.getInstance().getMainController();
 
     public void delete() {
         if(!output.getText().isEmpty())
@@ -45,6 +45,15 @@ public class Controller implements Initializable {
 
     public void clickOperator(ActionEvent event) {
         String value = ((Button) event.getSource()).getText();
+
+        if (output.getText().isEmpty())
+            return;
+
+        if (isOperator(output.getText().charAt(output.getText().length() - 1))) {
+            delete();
+            output.setText(output.getText() + value);
+            return;
+        }
         if (check){
             output.setText(model.calculation(output.getText()) + value);
             check = false;
@@ -53,19 +62,18 @@ public class Controller implements Initializable {
 
     @FXML
     void  clickOk(ActionEvent event){
-        ArrayList<Character> list = new ArrayList<>() ;
-        list.add('+');
-        list.add('-');
-        list.add('*');
-        list.add('/');
-
-        if (list.contains(output.getText().charAt(output.getText().length() - 1)) &&
-                !list.contains(output.getText().charAt(output.getText().length() - 2))  ){
-            output.setText(output.getText().substring(0, output.getText().length() - 1));
-        }
-
         Button value = ((Button) event.getSource());
         Stage stage = (Stage) value.getScene().getWindow();
+
+        if (output.getText().isEmpty()) {
+            stage.close();
+            return;
+        }
+
+        if (isOperator(output.getText().charAt(output.getText().length() - 1)) &&
+                !isOperator(output.getText().charAt(output.getText().length() - 2)) ){
+            output.setText(output.getText().substring(0, output.getText().length() - 1));
+        }
 
         Label costs = mainCont.getSpending();
         Button button = mainCont.getButton();
@@ -105,5 +113,18 @@ public class Controller implements Initializable {
             }
         }
         stage.close();
+    }
+
+    public boolean isOperator(char ch){
+        ArrayList<Character> list = new ArrayList<>() ;
+        list.add('+');
+        list.add('-');
+        list.add('*');
+        list.add('/');
+
+        if (list.contains(ch)){
+            return true;
+        }
+        return false;
     }
 }

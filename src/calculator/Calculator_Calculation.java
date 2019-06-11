@@ -1,8 +1,6 @@
 package calculator;
 
-public class Model {
-
-    public static double costs = 0;
+public class Calculator_Calculation {
 
     public double calculation(String output) {
 
@@ -24,8 +22,8 @@ public class Model {
                 result /=  Double.parseDouble(listNumbers[1]);
                 break;
         }
-            costs = result;
-        return costs;
+
+        return result;
 
     }
 
