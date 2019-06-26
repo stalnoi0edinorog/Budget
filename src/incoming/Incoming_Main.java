@@ -13,11 +13,8 @@ public class Incoming_Main extends Application {
     public void start( Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("incoming.fxml"));
-
         Scene scene = new Scene(root, 582, 456);
-
         primaryStage.setScene(scene);
-
         primaryStage.show();
     }
 }

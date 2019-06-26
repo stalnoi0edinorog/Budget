@@ -2,34 +2,23 @@ package calculator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import spending.Context;
-import spending.Spending_Controller;
-
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import model.Categories;
+import static spending.Spending_Controller.checkWindow;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.lang.Math.round;
 
-
-public class Calculator_Controller implements Initializable {
-
-    public Text output;
-    private Calculator_Calculation model = new Calculator_Calculation();
-    private boolean check = false;
-
-    @Override
+public class Calculator_Controller {
     @FXML
-    public void initialize(URL location, ResourceBundle resource){
-        Context.getInstance().setControllerC(this);
-    }
+    public Text output;
 
-    Spending_Controller mainCont = Context.getInstance().getMainController();
+    private Calculation model = new Calculation();
+    private boolean check = false;
+    private Button category = Categories.getCategoryButton();
 
     public void delete() {
         if(!output.getText().isEmpty())
@@ -38,14 +27,19 @@ public class Calculator_Controller implements Initializable {
     public void clickNum(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
         output.setText(output.getText() + value);
-       if (output.getText().matches("[0-9]+\\.?[0-9]*[*\\-+/][0-9]+\\.?[0-9]*")) {
+        String text = output.getText();
+
+        if (text.equals(".") || text.length() > 1 && text.charAt(text.length() - 1) == text.charAt(text.length() - 2)
+                && text.charAt(text.length() - 1) == '.')
+            delete();
+
+       if (text.matches("[0-9]+\\.?[0-9]*[*\\-+/][0-9]+\\.?[0-9]*")) {
            check = true;
        }
     }
 
     public void clickOperator(ActionEvent event) {
-        String value = ((Button) event.getSource()).getText();
-
+       String value = ((Button) event.getSource()).getText();
         if (output.getText().isEmpty())
             return;
 
@@ -57,74 +51,58 @@ public class Calculator_Controller implements Initializable {
         if (check){
             output.setText(model.calculation(output.getText()) + value);
             check = false;
-      } else { output.setText(output.getText() + value); }
+      } else
+          output.setText(output.getText() + value);
     }
 
-    @FXML
-    void  clickOk(ActionEvent event){
-        Button value = ((Button) event.getSource());
-        Stage stage = (Stage) value.getScene().getWindow();
+        @FXML
+        public void  clickOk(ActionEvent event) {
+            Button butt = ((Button) event.getSource());
+            Stage stage = (Stage) butt.getScene().getWindow();
+            String text = output.getText();
 
-        if (output.getText().isEmpty()) {
+            if (output.getText().isEmpty()) {
+                stage.close();
+                return;
+            }
+            if (isOperator(text.charAt(output.getText().length() - 1)) && isOperator(text.charAt(output.getText().length() - 2)))
+                delete();
+
+            long result = round(model.calculation(text));
+
+            if (category.getText().isEmpty())
+                category.setText(String.valueOf(result));
+            else
+                category.setText(String.valueOf(Long.parseLong(category.getText()) + result));
+
+            switch (checkWindow){
+                case 0: {
+                    if (Categories.spending.getText().isEmpty()) {
+                        Categories.spending.setText(String.valueOf(result));
+                        stage.close();
+                        break;
+                    }
+                    Categories.spending.setText(String.valueOf(Long.parseLong(Categories.spending.getText()) + result));
+                    break;
+                }
+                case 1: {
+                    if (Categories.incoming.getText().isEmpty()) {
+                        Categories.incoming.setText(String.valueOf(result));
+                        stage.close();
+                        break;
+                    }
+                    Categories.incoming.setText(String.valueOf(Long.parseLong(Categories.incoming.getText()) + result));
+                    break;
+                }
+            }
             stage.close();
-            return;
         }
 
-        if (isOperator(output.getText().charAt(output.getText().length() - 1)) &&
-                !isOperator(output.getText().charAt(output.getText().length() - 2)) ){
-            output.setText(output.getText().substring(0, output.getText().length() - 1));
+        private boolean isOperator(char ch){
+        List list = Arrays.asList('+', '-', '*', '/');
+            return list.contains(ch);
         }
-
-        Label costs = mainCont.getSpending();
-        Button button = mainCont.getButton();
-        double newCosts;
-
-        String textCosts = costs.getText();
-        int oldCosts = Integer.parseInt(textCosts.substring(0, textCosts.length() - 2));
-
-        String textButt = mainCont.getButton().getText();
-        int oldTextButt;
-
-        if (output.getText().matches("[0-9]+\\.?[0-9]*")){
-            newCosts = Double.parseDouble(output.getText());
-            if (costs.getText().equals("0 \u20BD")) { // В расходы
-                costs.setText(round(newCosts) + " " + "\u20BD");
-            } else{
-                costs.setText(round(oldCosts + newCosts) + " " + "\u20BD");
-            }
-            if (button.getText().equals("")){ // В кнопки
-                button.setText(round(newCosts) + " " + "\u20BD");
-            } else {
-                oldTextButt = Integer.parseInt(textButt.substring(0, textButt.length() - 2));
-                button.setText(round(oldTextButt + newCosts) + " " + "\u20BD");
-            }
-        }
-       else {
-            if (costs.getText().equals("0 \u20BD")) { //В расходы
-               costs.setText(round(model.calculation(output.getText())) + " " + "\u20BD");
-            } else {
-                 costs.setText(round(oldCosts + model.calculation(output.getText())) + " " + "\u20BD");
-            }
-            if (button.getText().equals("")) { //В кнопки
-               button.setText(round(model.calculation(output.getText())) + " " + "\u20BD");
-            } else {
-                oldTextButt = Integer.parseInt(textButt.substring(0, textButt.length() - 2));
-                button.setText(round(oldTextButt + model.calculation(output.getText())) + " " + "\u20BD");
-            }
-        }
-        stage.close();
-    }
-
-    public boolean isOperator(char ch){
-        ArrayList<Character> list = new ArrayList<>() ;
-        list.add('+');
-        list.add('-');
-        list.add('*');
-        list.add('/');
-
-        if (list.contains(ch)){
-            return true;
-        }
-        return false;
-    }
 }
+
+
+

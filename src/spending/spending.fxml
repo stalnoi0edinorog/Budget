@@ -6,81 +6,82 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pane" prefHeight="456.0" prefWidth="582.0" style="-fx-background-color: #FDF4E3;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spending.Spending_Controller">
+<Pane fx:id="pane" prefHeight="546.0" prefWidth="582.0" style="-fx-background-color: #FDF4E3;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spending.Spending_Controller">
    <children>
-       <Label prefHeight="36.0" prefWidth="582.0" style="-fx-background-color: #FBCEB1;" />
-       <Button fx:id="products" alignment="CENTER" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  textAlignment="CENTER" />
+      <Button fx:id="spending" layoutX="230.0" layoutY="170.0" mnemonicParsing="false" onAction="#openStatictics" prefHeight="121.0" prefWidth="122.0" style="-fx-background-radius: 80; -fx-background-color: FBCEB1;" text="0 ₽">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Button>
+       <Label prefHeight="31.0" prefWidth="582.0" style="-fx-background-color: #FBCEB1;" />
+       <Button fx:id="products" alignment="CENTER" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" textAlignment="CENTER" />
        <Button fx:id="transport" alignment="CENTER" layoutX="140.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
        <Button fx:id="housing" alignment="CENTER" layoutX="253.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
-       <Button fx:id="health" alignment="CENTER" layoutX="366.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
-       <Button fx:id="cafe" alignment="CENTER" layoutX="27.0" layoutY="160.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
-       <Button fx:id="leisure" alignment="CENTER" layoutX="27.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
-       <Button fx:id="clothes" alignment="CENTER" layoutX="479.0" layoutY="160.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  />
+       <Button fx:id="health" alignment="CENTER" layoutX="366.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
+       <Button fx:id="cafe" alignment="CENTER" layoutX="27.0" layoutY="160.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
+       <Button fx:id="leisure" alignment="CENTER" layoutX="27.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
+       <Button fx:id="clothes" alignment="CENTER" layoutX="479.0" layoutY="160.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
        <Button fx:id="presents" alignment="CENTER" layoutX="479.0" layoutY="70.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" />
-       <Button fx:id="internet" alignment="CENTER" layoutX="479.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;"  textAlignment="CENTER" />
-       <Button fx:id="plus" alignment="CENTER" layoutX="27.0" layoutY="345.0" mnemonicParsing="false" onAction="#addButton" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" text="+">
+       <Button fx:id="internet" alignment="CENTER" layoutX="479.0" layoutY="254.0" mnemonicParsing="false" onAction="#openCalculator" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" textAlignment="CENTER" />
+       <Button fx:id="plus" alignment="CENTER" layoutX="27.0" layoutY="434.0" mnemonicParsing="false" onAction="#addButton" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 60; -fx-background-color: #F5DEB3;" text="+">
          <font>
             <Font name="System Italic" size="16.0" />
          </font></Button>
-       <Button fx:id="incoming" layoutX="287.0" layoutY="425.0" mnemonicParsing="false" onAction="#openIncoming" prefHeight="30.0" prefWidth="293.0" style="-fx-background-color: FBCEB1;" text="Доходы">
+       <Button layoutX="288.0" layoutY="517.0" mnemonicParsing="false" onAction="#openIncoming" prefHeight="0.0" prefWidth="293.0" style="-fx-background-color: FBCEB1;" text="Доходы">
          <font>
             <Font name="System Italic" size="15.0" />
          </font></Button>
-       <Label fx:id="spending" alignment="CENTER" layoutX="230.0" layoutY="175.0" prefHeight="121.0" prefWidth="122.0" style="-fx-background-radius: 80; -fx-background-color: #FBCEB1;" text="0 ₽" textAlignment="CENTER">
-         <font>
-            <Font size="19.0" />
-         </font></Label>
-      <Text layoutX="256.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Расходы" wrappingWidth="70.0">
+      <Text layoutX="256.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Расходы" wrappingWidth="70.0">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="24.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Продукты" wrappingWidth="76.81640625">
+      <Text fx:id="productsT" layoutX="24.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Продукты" wrappingWidth="76.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="137.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Транспорт" wrappingWidth="76.81640625">
+      <Text fx:id="transportT" layoutX="137.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Транспорт" wrappingWidth="76.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="267.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Жильё" wrappingWidth="47.81640625">
+      <Text fx:id="housingT" layoutX="267.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Жильё" wrappingWidth="47.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="370.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Здоровье" wrappingWidth="67.81640625">
+      <Text fx:id="healthT" layoutX="370.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Здоровье" wrappingWidth="67.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="489.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Подарки" wrappingWidth="60.81640625">
+      <Text fx:id="presentsT" layoutX="489.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Подарки" wrappingWidth="60.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="42.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кафе" wrappingWidth="39.81640625">
+      <Text fx:id="cafeT" layoutX="42.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кафе" wrappingWidth="39.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="42.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Досуг" wrappingWidth="39.81640625">
+      <Text fx:id="leisureT" layoutX="42.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Досуг" wrappingWidth="39.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="489.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Одежда" wrappingWidth="60.81640625">
+      <Text fx:id="clothesT" layoutX="489.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Одежда" wrappingWidth="60.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="476.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Интернет" wrappingWidth="76.81640625">
+      <Text fx:id="internetT" layoutX="476.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Интернет" wrappingWidth="76.81640625">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
-      <Button layoutX="1.0" layoutY="425.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="285.0" style="-fx-background-color: F5DEB3;" text="Расходы">
+      <Button layoutX="2.0" layoutY="517.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="285.0" style="-fx-background-color: F5DEB3;" text="Расходы">
          <font>
             <Font size="15.0" />
          </font></Button>

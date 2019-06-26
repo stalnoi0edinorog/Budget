@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 
 public class Calculator_Main extends Application {
 
-    public static void main(String[] args) { Application.launch(); }
+    public static void main(String[] args) {
+        Application.launch();
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -16,5 +18,4 @@ public class Calculator_Main extends Application {
         primaryStage.setScene(new Scene(root, 258, 326));
         primaryStage.show();
     }
-
 }
